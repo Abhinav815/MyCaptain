@@ -1,0 +1,33 @@
+#include<stdio.h>
+int Prime(int, int);//function declaration
+
+int main()
+{
+    
+    int num, prime;
+    printf("Enter a number to check if its a prime number or not: ");
+    scanf("%d", &num);
+    prime = Prime(num, num/2);
+    if(prime == 1)
+    {
+        printf("\n %d is a prime number", num);
+    }
+    else
+    {
+        printf("\n %d is a Composite number", num);
+    }
+    return 0;
+}
+
+int Prime(int n, int i)
+{
+    if(i == 1)
+        return 1;   // if i is 1, we terminate from the method
+    else
+    {
+        if(n%i == 0)//checking for existance of factors
+            return 0;
+        else
+            Prime(n, i-1);    // recursive function
+    }
+}
